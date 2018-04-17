@@ -4,8 +4,9 @@ import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 
 // 引入页面组件
-import Register from '@/pages/Register'
 import Index from '@/pages/Index'
+import Register from '@/pages/Register'
+import Login from '@/pages/Login'
 
 Vue.use(Router)
 Vue.use(iView)
@@ -22,6 +23,12 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component: Register,
+      meta: { requiresAuth: false }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
       meta: { requiresAuth: false }
     }
   ]

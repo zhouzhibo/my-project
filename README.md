@@ -1,6 +1,9 @@
 # my-project
 
 > A Vue.js project
+这个是一个练习的vue的前端项目。
+
+用了vue + iview + axios + node 
 
 ## Build Setup
 
@@ -28,5 +31,3 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-这是一个分支的文件哦！

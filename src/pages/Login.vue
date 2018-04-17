@@ -1,7 +1,7 @@
 <template>
     <div class="register-card">
         <Card :padding="24">
-            <p  slot="title"  class="register-card-title" >用户注册</p>
+            <p  slot="title"  class="register-card-title" >用户登录</p>
             <Form :model="userInfo">
                 <FormItem>
                     <Input type="text" v-model="userInfo.user_name" placeholder="用户名" size="large" :clearable="true">
@@ -14,7 +14,7 @@
                     </Input>
                 </FormItem>
                 <FormItem>
-                     <Button type="primary" size="large" long v-on:click="register">注册</Button>
+                     <Button type="primary" size="large" long v-on:click="register">登录</Button>
                 </FormItem>
             </Form>
         </Card>
@@ -25,7 +25,7 @@
 import axios from "axios"
 
 export default {
-  name: "Register",
+  name: "Login",
   data() {
     return {
       userInfo: {
@@ -37,10 +37,12 @@ export default {
   methods: {
     register() {
       let thiscomponent = this;
+      console.log("用户名：" + this.userInfo.user_name);
+      console.log("密码：" + this.userInfo.password);
       axios
-        .post("http://127.0.0.1:3000/v1/users", this.userInfo)
+        .post("http://127.0.0.1:3000/v1/users/login", this.userInfo)
         .then(function(response) {
-            if (response.data.result == "1") {
+          if (response.data.result == "1") {
                     console.log("success");
                     thiscomponent.$Modal.success({
                     content: response.data.message,
