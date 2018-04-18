@@ -42,8 +42,8 @@ export default {
       axios
         .post("http://127.0.0.1:3000/v1/users/login", this.userInfo)
         .then(function(response) {
-          if (response.data.result == "1") {
-                    console.log("success");
+          if (response.data.success) {
+                    sessionStorage.setItem('token',response.data.token); // 把token存起来
                     thiscomponent.$Modal.success({
                     content: response.data.message,
                     onOk: () => {
